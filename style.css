@@ -113,6 +113,7 @@ body {
 
 .dis {
   color: rgb(80, 80, 80);
+  text-align: center;
 }
 
 .error {
@@ -125,4 +126,13 @@ body {
 
 .error.show {
   display: block;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 20pt;
+  }
+  .dis {
+    font-size: 11pt;
+  }
 }

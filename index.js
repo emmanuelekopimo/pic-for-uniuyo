@@ -5,7 +5,7 @@ const text = document.querySelector(".entry");
 const errorDisplay = document.querySelector(".error");
 errorDisplay.classList.toggle("show", false);
 button.onclick = () => {
-    let imageUrl = `https://uniuyo.edu.ng/eportals/admissionsPassports/${text.value}.jpg`;
+    let imageUrl = `https://uniuyo.edu.ng/eportals/admissionsPassports/${text.value.trim()}.jpg`;
     errorDisplay.innerHTML = `Network error`;
     // Make a request to crossorigin.me to fetch the image
     fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(imageUrl)}`)
@@ -18,6 +18,7 @@ button.onclick = () => {
         <b>Note:</b> Registration No. is case sensitive`;
             throw new Error("The URL did not return an image");
         }
+        errorDisplay.classList.toggle("show", false);
         image.src = data.status["url"];
     })
         .catch((error) => {
