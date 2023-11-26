@@ -1,0 +1,109 @@
+body {
+  margin: 12px;
+  font-family: roboto, Arial;
+}
+.top-colors {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 8px;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+}
+
+.top-colors > div:nth-child(1) {
+  background-color: black;
+}
+
+.top-colors > div:nth-child(2) {
+  background-color: rgb(89, 223, 0);
+}
+
+.top-colors > div:nth-child(3) {
+  background-color: rgb(99, 99, 99);
+}
+.main-area {
+  margin: auto;
+  margin-top: 70px;
+  max-width: 450px;
+  border: 0.8px solid gray;
+  padding-top: 18px;
+  padding-inline: 15px;
+  border-radius: 6px;
+}
+
+.title {
+  font-size: 24pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 12pt;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  text-align: center;
+  color: rgb(90, 90, 90);
+}
+
+.small-image {
+  margin: auto;
+  width: 40%;
+  display: block;
+}
+
+.label {
+  margin-block: 5px;
+}
+
+.input-container {
+  background-color: rgb(206, 206, 206);
+  padding: 8px;
+  padding-inline: 12px;
+  display: flex;
+  border-radius: 4px;
+}
+
+.username-e {
+  width: 100%;
+  font-size: 16pt;
+  display: block;
+  background-color: rgb(206, 206, 206);
+  border-width: 0px;
+  outline: none;
+}
+
+.username-e:active {
+  border-width: 0px;
+}
+
+.log-in-button {
+  display: block;
+  margin: auto;
+  margin-block: 10px;
+  padding-inline: 30px;
+  padding-block: 10px;
+  background: black;
+  color: rgb(0, 183, 255);
+  font-weight: 500;
+  border-width: 0px;
+  border-radius: 4px;
+  font-size: 12pt;
+}
+
+.log-in-button:hover {
+  background: rgb(20, 20, 20);
+}
+
+.log-in-button:active {
+  background: rgb(32, 32, 32);
+}
+
+.secure-tag {
+  padding-inline: 5px;
+  background-color: rgb(41, 145, 0);
+  color: white;
+  border-radius: 2px;
+}
