@@ -7,34 +7,25 @@ errorDisplay.classList.toggle("show", false);
 button.onclick = () => {
   let imageUrl = `https://uniuyo.edu.ng/eportals/admissionsPassports/${text.value}.jpg`;
   errorDisplay.innerHTML = `Network error`;
-  fetch(imageUrl)
-    .then((response) => {
-      // check for success
-      if (!response.ok) {
-        errorDisplay.innerHTML = `That is not a registered student of the University of Uyo<br>
-            <b>Note:</b> Registration No. is case sensitive`;
-        throw new Error("Network response was not ok");
-      }
 
-      //  check if it is image
-      const contentType = response.headers.get("content-type");
+  // Make a request to crossorigin.me to fetch the image
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(imageUrl)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const contentType = data.status["content_type"];
+      console.log(data);
       if (!contentType || !contentType.startsWith("image")) {
         errorDisplay.innerHTML = `That is not a registered student of the University of Uyo<br>
-            <b>Note:</b> Registration No. is case sensitive`;
-        throw new Error("The URL did not return image");
+        <b>Note:</b> Registration No. is case sensitive`;
+        throw new Error("The URL did not return an image");
       }
 
-      // convert to blob
-      return response.blob();
+      image.src = data.status["url"];
     })
-    .then((blob) => {
-      const blobUrl = URL.createObjectURL(blob);
-
-      image.src = blobUrl;
-    })
-    .catch((error: Error) => {
+    .catch((error) => {
+      image.src = "./images/R.jpg";
       errorDisplay.classList.toggle("show", true);
-      console.error(error);
+      console.error("Error fetching and displaying image:", error);
     });
 };
 

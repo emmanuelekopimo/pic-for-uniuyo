@@ -54,6 +54,7 @@ body {
   width: 40%;
   display: block;
   border: 1px solid rgb(0, 160, 223);
+  border-radius: 6px;
 }
 
 .label {
